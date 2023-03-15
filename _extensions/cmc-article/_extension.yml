@@ -1,0 +1,15 @@
+title: cmc-article
+author: Cory McCartan
+version: 0.1.0
+quarto-required: ">=1.2.0"
+contributes:
+  formats:
+    common:
+      toc: true
+      filters:
+        - cmc-article.lua
+    pdf:
+      include-in-header: header.tex
+    html:
+      css: styles.css
+

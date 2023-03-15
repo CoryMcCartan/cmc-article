@@ -1,0 +1,50 @@
+---
+title: Article Title
+
+date: last-modified
+author:
+  - name: Jane Doe
+    affiliations:
+      - name: An Organization
+        department: The Department
+        address: 1 Union St
+        city: Seattle
+        country: USA
+        postal-code: 98101
+      - A second affilication
+    orcid: 0000-0000-0000-0000
+    email: jdoe1@example.org
+    url: https://example.org/
+  - name: John Doe
+    affiliations:
+      - Another Affiliation
+    email: jdoe2@example.org
+abstract: |
+  The text of your abstract. 200 or fewer words.
+  The `cmc-article` format is designed to be lightweight yet customizable.
+  It should make any scholarly article easy to write and beautiful to look at.
+format:
+  cmc-article-pdf:
+    keep-tex: true  
+    journal:
+      blinded: false
+  cmc-article-html: default
+keywords:
+  - 3 to 6 keywords
+  - can go here
+bibliography: bibliography.bib  
+---
+
+# Introduction {#sec-intro}
+
+Body of paper. Citations are easy to use [@lowry1951protein].
+
+# Additional section headings here
+
+## An example subsection heading
+
+# Conclusion
+
+# Supplementary Material {.appendix}
+
+This section will be numbered like an appendix and will appear after the references.
