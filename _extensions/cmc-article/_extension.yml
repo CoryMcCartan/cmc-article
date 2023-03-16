@@ -8,7 +8,9 @@ contributes:
       journal:
         blinded: false
       physics: true
-      serif-only: false
+      font-serif-only: false
+      font-sans-biolinium: true
+      font-serif-cochineal: true
       toc: false
       fontsize: 11pt
       indent: false

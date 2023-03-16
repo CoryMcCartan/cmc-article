@@ -26,10 +26,20 @@ format:
   cmc-article-pdf: default
 ```    
 
+## Example
+
+Here is the source code for a minimal sample document: [template.qmd](template.qmd).
+This produces the following document (click for a full preview):
+
+<a href="template.pdf">
+<img src="thumb.png" width=204>
+</a>
+
 ## Options
 
 Most Quarto PDF options are supported here, with the primary exception of
-alternative font families and anything to do with CSL references or `biblatex`.
+alternative font families (see below for font customization)
+and anything to do with CSL references or `biblatex`.
 Additional package-specific options are described below.
 
 ### Blinded versions
@@ -40,14 +50,6 @@ journal:
   blinded: true
 ```
 
-### Serif title headings
-
-By default, the title and section headings are set in a sans-serif font. 
-Provide the following key under `cmc-article-pdf` to use a serif font:
-```yaml
-serif-only: true
-```
-
 ### Physics package
 
 By default, the [`physics`](http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf) package is included.
@@ -56,11 +58,29 @@ Provide the following key under `cmc-article-pdf` to remove it:
 physics: false
 ```
 
-### To change the font 
+### Fonts
 
-### To change the font size
+#### Serif font
+The default serif font is Cochineal, based on the Crimson font family.
+If you would rather not use this font, either for file size or aesthetic reasons, you can provide the following flag.
+Palatino will be used instead for the body text and mathematics.
+```yaml
+font-serif-cochineal: false
+```
 
-## Example
+#### Sans-serif font
+The default sans-serif font is Biolinium, part of the `libertine` package.
+If you would rather not use this font, either for file size or aesthetic reasons, you can provide the following flag.
+Helvetica will be used instead.
+```yaml
+font-sans-biolinium: false
+```
 
-Here is the source code for a minimal sample document: [template.qmd](template.qmd).
+#### Serif title headings
+
+By default, the title and section headings are set in a sans-serif font. 
+Provide the following key under `cmc-article-pdf` to use a serif font:
+```yaml
+font-serif-only: true
+```
 
