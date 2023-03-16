@@ -33,7 +33,7 @@ This produces the following document (click for a full preview):
 
 <p align="center">
 <a href="template.pdf">
-<kbd> <img src="thumb.png" width=408 style="border: 1px solid #444"> </kbd>
+<kbd> <img src="thumb.png" width=306 style="border: 1px solid #444"> </kbd>
 </a>
 </p>
 
