@@ -18,7 +18,7 @@ contributes:
       geometry:
         - margin=1in
       filters:
-        - cmc-article.lua
+        - refs.lua
       execute:
         echo: false
         warning: false
@@ -28,6 +28,7 @@ contributes:
         - partials/doc-class.tex
         - partials/title.tex
         - partials/before-body.tex
+        - partials/biblio.tex
       cite-method: natbib
       biblio-style: apalike
       doublespacing: false

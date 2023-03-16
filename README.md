@@ -41,7 +41,7 @@ This produces the following document (click for a full preview):
 
 Most Quarto PDF options are supported here, with the primary exception of
 alternative font families (see below for font customization)
-and anything to do with CSL references or `biblatex`.
+and anything to do with CSL references.
 Additional package-specific options are described below.
 
 ### Blinded versions

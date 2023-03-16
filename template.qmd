@@ -1,7 +1,7 @@
 ---
 title: Article Title
 abstract: |
-  The text of your abstract. 200 or fewer words.
+  The text of your abstract. 
   The `cmc-article` format is designed to be lightweight yet customizable.
   It should make any scholarly article easy to write and beautiful to look at.
 author:
@@ -34,7 +34,7 @@ format:
 keywords:
   - 3 to 6 keywords
   - can go here
-bibliography: bibliography.bib  
+bibliography: references.bib 
 ---
 
 # Introduction {#sec-intro}
@@ -73,6 +73,12 @@ ggplot(NULL, aes(rgamma(5e4, 3))) +
 
 # Conclusion
 
-# Supplementary Material {.appendix}
+The references will appear automatically before the first section labeled `{.appendix}`.
+
+# First appendix section {.appendix}
 
 This section will be numbered like an appendix and will appear after the references.
+
+# Second appendix section {.appendix}
+
+If there is no content in the last section it will be used to title the references section instead.
