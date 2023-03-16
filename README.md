@@ -31,11 +31,11 @@ format:
 Here is the source code for a minimal sample document: [template.qmd](template.qmd).
 This produces the following document (click for a full preview):
 
-<div>
+<p align="center">
 <a href="template.pdf">
-<img src="thumb.png" width=408 style="border: 1px solid #444">
+<kbd> <img src="thumb.png" width=408 style="border: 1px solid #444"> </kbd>
 </a>
-</div>
+</p>
 
 ## Options
 
