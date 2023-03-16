@@ -2,3 +2,7 @@
 *.bak
 *.swp
 .DS_Store
+
+*_files/
+*.pdf
+template.tex

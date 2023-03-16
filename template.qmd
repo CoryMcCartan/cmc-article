@@ -1,7 +1,9 @@
 ---
 title: Article Title
-
-date: last-modified
+abstract: |
+  The text of your abstract. 200 or fewer words.
+  The `cmc-article` format is designed to be lightweight yet customizable.
+  It should make any scholarly article easy to write and beautiful to look at.
 author:
   - name: Jane Doe
     affiliations:
@@ -9,26 +11,26 @@ author:
         department: The Department
         address: 1 Union St
         city: Seattle
-        country: USA
+        region: WA
         postal-code: 98101
       - A second affilication
     orcid: 0000-0000-0000-0000
     email: jdoe1@example.org
     url: https://example.org/
+    corresponding: true
   - name: John Doe
     affiliations:
       - Another Affiliation
     email: jdoe2@example.org
-abstract: |
-  The text of your abstract. 200 or fewer words.
-  The `cmc-article` format is designed to be lightweight yet customizable.
-  It should make any scholarly article easy to write and beautiful to look at.
+date: last-modified
+thanks: |
+  Acknowledgements here.
 format:
   cmc-article-pdf:
-    keep-tex: true  
+    keep-tex: true
     journal:
       blinded: false
-  cmc-article-html: default
+    include-in-header: header.tex
 keywords:
   - 3 to 6 keywords
   - can go here
@@ -37,11 +39,37 @@ bibliography: bibliography.bib
 
 # Introduction {#sec-intro}
 
-Body of paper. Citations are easy to use [@lowry1951protein].
+Body of paper. Citations are easy to use [@metropolis1953].
+See @sec-addl for a math demonstration.
 
-# Additional section headings here
+This is a second paragraph. The quick brown fox jumps over the lazy dog.
+
+# Additional section headings here {#sec-addl}
+
+`cmc-article` includes helpful math packages: `mathtools`, `amssymb`, `amsthm`, and `physics` by default.
+It also includes a default `header.tex` file with useful macros for math and statistics.
+\begin{align*}
+    \vb{X} &\sim \Norm(\vb*\mu, \vb*\Sigma^2) \\
+    p(\vb x) &= \frac{1}{\sqrt{(2\pi)^k\det(\vb*\Sigma)}} 
+        \exp(-\frac{1}{2} (\vb x-\vb*\mu)^\top \vb*\Sigma^{-1} (\vb x-\vb*\mu)) \\
+    \E(Y) &= \sum_{y\in\mathcal{Y}} y\Pr(Y=y)
+    = \sum_{y\in\mathcal{Y}} y\E(\mathbb{1}\{Y=y\})
+\end{align*}
 
 ## An example subsection heading
+
+See @fig-ex for an example figure.
+
+```{r fig-ex}
+#| fig-cap: Histogram of samples from a gamma distribution.
+library(ggplot2)
+
+ggplot(NULL, aes(rgamma(5e4, 3))) +
+  geom_histogram(aes(y = after_stat(density))) +
+  scale_y_continuous(name=NULL, expand=expansion(c(0, 0.05))) +
+  labs(x=NULL) +
+  theme_bw(base_family="Times")
+```
 
 # Conclusion
 
