@@ -1,6 +1,9 @@
 
 # `cmc-article` Quarto Format
 
+The `cmc-article` format is designed for scholarly articles, especially preprints.
+Its goal is to be lightweight yet customizable, with thoughtful typography and layout.
+
 ## Creating a New Article
 
 To create a new article using this format:

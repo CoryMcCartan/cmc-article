@@ -2,8 +2,8 @@
 title: Article Title
 abstract: |
   The text of your abstract. 
-  The `cmc-article` format is designed to be lightweight yet customizable.
-  It should make any scholarly article easy to write and beautiful to look at.
+  The `cmc-article` format is designed for scholarly articles, especially preprints.
+  Its goal is to be lightweight yet customizable, with thoughtful typography and layout.
 author:
   - name: Jane Doe
     affiliations:
@@ -14,7 +14,6 @@ author:
         region: WA
         postal-code: 98101
       - A second affilication
-    orcid: 0000-0000-0000-0000
     email: jdoe1@example.org
     url: https://example.org/
     corresponding: true
