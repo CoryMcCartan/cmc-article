@@ -37,6 +37,7 @@ contributes:
       citecolor: VioletRed4
       urlcolor: DodgerBlue4
       number-sections: true
+      number-depth: 4
       fig-format: pdf
       fig-width: 7
       fig-height: 3.5

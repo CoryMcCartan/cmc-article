@@ -19,8 +19,8 @@ $if(it.url)$
 Website: \url{$it.url$}.
 $endif$
 $for(it.affiliations/first)$
-Address:
 $if(it.address)$
+Address:
 $it.address$, $it.city$, $if(it.region)$$it.region$$else$$it.country$$endif$ $it.postal-code$.
 $endif$
 $endfor$
