@@ -12,7 +12,7 @@ author:
         address: 1 Union St
         city: Seattle
         region: WA
-        postal-code: 98101
+        postal-code: "98101 "
       - A second affilication
     email: jdoe1@example.org
     url: https://example.org/
