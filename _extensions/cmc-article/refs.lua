@@ -6,7 +6,7 @@ seen_div = false
 local proc_app = function(el) 
   if el.attr.classes:includes("appendix") and not seen_app then
     seen_app = true
-    if _quarto.format.isLatexOutput() then
+    if quarto.doc.isFormat("latex") then
       if not seen_div then
         return pandoc.List({
           pandoc.RawInline("latex", "\\hypertarget{refs}{}\n"),
@@ -25,7 +25,7 @@ local proc_app = function(el)
 end
 
 local proc_div = function(el) 
-  if _quarto.format.isLatexOutput() and el.attr.identifier == "refs" then
+  if quarto.doc.isFormat("latex") and el.attr.identifier == "refs" then
     seen_div = true
     return pandoc.List({
       pandoc.RawInline("latex", "\\hypertarget{refs}{}\n"),
