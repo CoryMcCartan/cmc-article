@@ -15,8 +15,10 @@ contributes:
       fontsize: 11pt
       indent: false
       date-format: long
-      geometry:
-        - margin=1in
+      margin-top: 1in
+      margin-left: 1in
+      margin-right: 1in
+      margin-bottom: 1in
       filters:
         - refs.lua
       execute:
@@ -38,6 +40,7 @@ contributes:
       urlcolor: DodgerBlue4
       number-sections: true
       number-depth: 4
+      block-headings: false
       fig-format: pdf
       fig-width: 7
       fig-height: 3.5
