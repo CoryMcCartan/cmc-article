@@ -1,14 +1,15 @@
+% theorem environments
 \theoremstyle{plain}
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{claim}[prop]{Claim}
 \newtheorem{corollary}{Corollary}[prop]
 \newtheorem{theorem}[prop]{Theorem}
 \newtheorem{lemma}[prop]{Lemma}
-\newtheorem{assump}{Assumption}
-\renewcommand\theassump{A\arabic{assump}}
 
+% add \numberthis to the end of a line in an `align*` environment to get a number
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
+% Blackboard bold sets and the empty set
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
@@ -16,6 +17,7 @@
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \renewcommand{\empty}{\varnothing}
 
+% quick matrices and common fractions
 \newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}  % a matrix or vector
 \newcommand{\sm}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
 \newcommand{\half}{\frac{1}{2}} 
@@ -23,22 +25,24 @@
 \newcommand{\third}{\frac{1}{3}} 
 \newcommand{\quarter}{\frac{1}{4}} 
 
-\newcommand{\eps}{\varepsilon}
+\newcommand{\eps}{\varepsilon} % A cursivelike epsilon
 
+% common operators
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
+% probability operators, abbrevations, and notions of convergence
 \DeclareMathOperator{\E}{\mathbb{E}}
 \let\Pr\undefined
 \DeclareMathOperator{\Pr}{\mathbb{P}}
-\newcommand{\indep}{\mathbin{\perp\!\!\!\!\!\:\perp}}
-\newcommand{\gvn}{\;\middle|\;}
-\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\indep}{\mathbin{\perp\!\!\!\!\!\:\perp}} % use \perp for orthogonality only
+\newcommand{\gvn}{\;\middle|\;} % use \gvn rather than \mid inside a tall expectation
+\newcommand{\F}{\ensuremath{\mathcal{F}}} % generic sigma algebra
 \newcommand{\B}{\ensuremath{\mathcal{B}}}
 \newcommand{\ind}{\mathbf{1}}
-\newcommand{\iid}{\mathrel{\stackrel{iid}{\sim}}}
+\newcommand{\iid}{\mathrel{\stackrel{iid}{\sim}}} % iid on top of ~
 \newcommand{\rv}{random variable}
 \newcommand{\rvs}{random variables}
 \newcommand{\iidt}{independent and identically distributed}
@@ -46,8 +50,9 @@
 \newcommand{\cvw}{\xrightarrow{\,w\,}}
 \newcommand{\cvd}{\xrightarrow{\,d\,}}
 \newcommand{\cvas}{\xrightarrow{\;\!a.s.\:\!}}
-\newcommand{\cvlp}[1]{\xrightarrow{\;\!L^{#1}\,\!}}
+\newcommand{\cvlp}[1]{\xrightarrow{\;\!L^{#1}\,\!}} % e.g. \cvlp{2} for L2 conv.
 
+% additional operators and common distributions
 \DeclareMathOperator{\Var}{\mathbb{V}}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Corr}{Corr}
@@ -68,9 +73,10 @@
 \newcommand{\Bern}{\mathrm{Bern}\qty}
 \newcommand{\Bernoulli}{\mathrm{Bernoulli}\qty}
 \newcommand{\Norm}{\mathcal{N}\qty}
-\newcommand{\MVNorm}[1][]{\mathcal{N}_{#1}\qty}
+\newcommand{\MVNorm}[1][]{\mathcal{N}_{#1}\qty} % e.g. \MVNorm{p} for a p-dim distr.
 \newcommand{\Student}{\mathrm{Student-}\mathit{t}\qty}
 
+% delimiters
 \DeclarePairedDelimiter\br{\langle}{\rangle}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
