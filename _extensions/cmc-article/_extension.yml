@@ -21,6 +21,7 @@ contributes:
       margin-bottom: 1in
       filters:
         - refs.lua
+        - wordcount.lua
       execute:
         echo: false
         warning: false

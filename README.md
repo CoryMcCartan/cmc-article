@@ -3,6 +3,7 @@
 
 The `cmc-article` format is designed for scholarly articles, especially preprints.
 Its goal is to be lightweight yet customizable, with thoughtful typography and layout.
+Detailed word-counting functionality is also included.
 
 ## Creating a New Article
 
@@ -39,6 +40,27 @@ This produces the following document (click for a full preview):
 <kbd> <img src="thumb.png" width=306 style="border: 1px solid #444"> </kbd>
 </a>
 </p>
+
+## Word counting
+
+During rendering a table like the following will be included in the render log.
+
+```
+------------------------------------------------
+ Section      Words   Cuml.
+------------------------------------------------
+ Title            6     --
+ Abstract       163    163
+ Body          2751   2914
+ References     375   3289
+ Appendices     428   3717
+------------------------------------------------
+```
+
+To exclude a block element (image or table caption, div, code block) or entire
+section (demarcated by a header) from any word-counting, simply add the
+`{.nowords}` class to the element. 
+
 
 ## Options
 
