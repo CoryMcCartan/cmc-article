@@ -41,7 +41,7 @@ This produces the following document (click for a full preview):
 </a>
 </p>
 
-## Word counting
+## Word Counting
 
 During rendering a table like the following will be included in the render log.
 
@@ -54,7 +54,7 @@ During rendering a table like the following will be included in the render log.
  Abstract              163    163
   (Introduction...)    609
   (Formalizing ...)   1305
-  [further section titles and word counts]
+[further section titles and word counts]
   (Conclusion  ...)    158
  Body                 2909   3072
  References            375   3447
@@ -67,7 +67,7 @@ section (demarcated by a header) from any word-counting, simply add the
 `{.nowords}` class to the element. 
 
 
-## Options
+## Template Options
 
 Most Quarto PDF options are supported here, with the primary exception of
 alternative font families (see below for font customization)
