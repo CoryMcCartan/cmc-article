@@ -46,15 +46,20 @@ This produces the following document (click for a full preview):
 During rendering a table like the following will be included in the render log.
 
 ```
-------------------------------------------------
- Section      Words   Cuml.
-------------------------------------------------
- Title            6     --
- Abstract       163    163
- Body          2751   2914
- References     375   3289
- Appendices     428   3717
-------------------------------------------------
+ WORD COUNT
+-----------------------------------
+ Section             Words   Cuml.
+-----------------------------------
+ Title                   6       
+ Abstract              163    163
+  (Introduction...)    609
+  (Formalizing ...)   1305
+  [further section titles and word counts]
+  (Conclusion  ...)    158
+ Body                 2909   3072
+ References            375   3447
+ Appendices            428   3875
+-----------------------------------
 ```
 
 To exclude a block element (image or table caption, div, code block) or entire

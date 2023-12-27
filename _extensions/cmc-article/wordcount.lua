@@ -7,6 +7,9 @@ increment = 1 -- if set to 0 we'll stop counting words temporarily
 -- if increment != 1, once we hit a heading at or above this level
 -- we'll reset the increment to 1
 h_level_reset = -1
+last_h = nil
+last_h_words = 0
+
 -- words per display equation
 display_math_words = 1
 
@@ -57,6 +60,14 @@ counting_fns = {
             increment = 1
         end
 
+        if el.level == 1 then
+            if last_h ~= nil then
+                print(string.format("  (%-12.12s...) %6d", last_h, words - last_h_words))
+            end
+            last_h_words = words
+            last_h = pandoc.utils.stringify(el.content)
+        end
+
          -- count appendices separately
         if el.classes ~= nil and
                 el.classes:includes("appendix", 1) and
@@ -101,9 +112,9 @@ function Pandoc(el)
 
     -- count and output as we go
     cuml_words = 0
-    print("\n------------------------------------------------")
-    print(" Section      Words   Cuml.")
-    print("------------------------------------------------")
+    print("\n WORD COUNT\n-----------------------------------")
+    print(" Section             Words   Cuml.")
+    print("-----------------------------------")
 
     if el.meta.title ~= nil then
         words = 0 -- reset
@@ -111,13 +122,13 @@ function Pandoc(el)
         -- don't include title in total
         -- cuml_words = cuml_words + words
         -- print(string.format(" Title       %6d %6d", words, cuml_words))
-        print(string.format(" Title       %6d     --", words))
+        print(string.format(" Title              %6d       ", words))
     end
     if el.meta.abstract ~= nil then
         words = 0
         el.meta.abstract:walk(counting_fns)
         cuml_words = cuml_words + words
-        print(string.format(" Abstract    %6d %6d", words, cuml_words))
+        print(string.format(" Abstract           %6d %6d", words, cuml_words))
     end
 
     words = 0
@@ -126,6 +137,7 @@ function Pandoc(el)
         words_body = words_til_app
         words_app = words_til_refs - words_body
         words_refs = words - words_til_refs
+        print(string.format("  (%-12.12s...) %6d", last_h, words_til_refs - last_h_words))
     else
         words_body = words_til_refs
         words_refs = words_til_app - words_body
@@ -133,12 +145,12 @@ function Pandoc(el)
     end
 
     cuml_words = cuml_words + words_body
-    print(string.format(" Body        %6d %6d", words_body, cuml_words))
+    print(string.format(" Body               %6d %6d", words_body, cuml_words))
     cuml_words = cuml_words + words_refs
-    print(string.format(" References  %6d %6d", words_refs, cuml_words))
+    print(string.format(" References         %6d %6d", words_refs, cuml_words))
     cuml_words = cuml_words + words_app
-    print(string.format(" Appendices  %6d %6d", words_app, cuml_words))
+    print(string.format(" Appendices         %6d %6d", words_app, cuml_words))
 
-    print("------------------------------------------------\n\n")
+    print("-----------------------------------\n\n")
     return nil
 end
