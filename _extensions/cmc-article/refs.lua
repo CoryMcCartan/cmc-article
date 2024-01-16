@@ -12,11 +12,15 @@ function proc_app(el)
                     pandoc.RawInline("latex", "\\hypertarget{refs}{}\n"),
                     pandoc.RawInline("latex", "\\begin{CSLReferences}{0}{0}\\end{CSLReferences}\n\n"),
                     pandoc.RawBlock("latex", "\\appendix\n"),
+                    pandoc.RawInline("latex", "\\renewcommand\\thefigure{\\thesection\\arabic{figure}}\n"),
+                    pandoc.RawInline("latex", "\\setcounter{figure}{0}\n\n"),
                     el
                 })
             else
                 return pandoc.List({
                     pandoc.RawBlock("latex", "\\appendix\n"),
+                    pandoc.RawInline("latex", "\\renewcommand\\thefigure{\\thesection\\arabic{figure}}\n"),
+                    pandoc.RawInline("latex", "\\setcounter{figure}{0}\n\n"),
                     el
                 })
             end
