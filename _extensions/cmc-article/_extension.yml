@@ -32,7 +32,7 @@ contributes:
         - partials/fonts.latex
         - partials/title.tex
         - partials/before-body.tex
-      pdf-engine: xelatex
+      pdf-engine: pdflatex
       cite-method: natbib
       biblio-style: apalike
       number-sections: true
