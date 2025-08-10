@@ -1,4 +1,4 @@
-render_thumb.sh
+render_thumb.R
 *.pdf
 *.png
 *.rproj
