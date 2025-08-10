@@ -1,13 +1,11 @@
-% theorem environments
-\theoremstyle{plain}
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{claim}[prop]{Claim}
-\newtheorem{corollary}{Corollary}[prop]
-\newtheorem{theorem}[prop]{Theorem}
-\newtheorem{lemma}[prop]{Lemma}
+% BEGIN header.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional math packages
+\usepackage{mathtools}
+\usepackage[italicdiff]{physics}
 
-% add \numberthis to the end of a line in an `align*` environment to get a number
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+% Paper-specific custom commands and definitions here
+
+
 
 % Blackboard bold sets and the empty set
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
@@ -20,10 +18,10 @@
 % quick matrices and common fractions
 \newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}  % a matrix or vector
 \newcommand{\sm}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
-\newcommand{\half}{\frac{1}{2}} 
-\newcommand{\thalf}{\tfrac{1}{2}} 
-\newcommand{\third}{\frac{1}{3}} 
-\newcommand{\quarter}{\frac{1}{4}} 
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\thalf}{\tfrac{1}{2}}
+\newcommand{\third}{\frac{1}{3}}
+\newcommand{\quarter}{\frac{1}{4}}
 
 \newcommand{\eps}{\varepsilon} % A cursivelike epsilon
 
@@ -82,3 +80,26 @@
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\round{\lceil}{\rfloor}
 \DeclarePairedDelimiter\set{\{}{\}}
+
+% Add \numberthis to the end of a line in an `align*` environment to get a number
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% Named assumptions:
+% Use \begin{assump}[Optional label]{KEY} to create an assumption
+% Reference it with \ref{a-key}, where `key` is the lowercased version of `KEY`
+\makeatletter
+\newcommand{\assumplabel}[2]{%
+   \protected@write \@auxout {}{\string\newlabel{#1}{{#2}{\thepage}{#2}{#1}{}}}%
+   \hypertarget{#1}{#2}%
+}
+\makeatother
+\newenvironment{assump}[2][]{%
+\par\medskip%
+\def\tempa{}\def\tempb{#1}%
+\lowercase{\def\lblkey{a-#2}}%
+\textbf{Assumption \assumplabel{\lblkey}{#2}}%
+\ifx\tempa\tempb\else~(#1)\fi%
+\textbf{.}\itshape
+}{\normalfont}
+
+% END header.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

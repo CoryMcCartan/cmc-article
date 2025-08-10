@@ -1,0 +1,50 @@
+% Modified from <https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/fonts.latex>
+% to create additional font options
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  $if(font-serif-crimson)$
+  \usepackage[p,osf,swashQ,scale=1.02]{cochineal}
+  \usepackage{amsthm}
+  \usepackage[cochineal,vvarbb]{newtxmath}
+  $else$
+  \usepackage{mathpazo}
+  \usepackage{newpxtext}
+  $endif$
+  $if(font-sans-biolinium)$
+  \usepackage{biolinum}
+  $else$
+  \usepackage[scaled]{helvet}
+  $endif$
+  \usepackage[scale=0.95,varl]{inconsolata}
+\else % if luatex or xetex
+  $if(mathspec)$
+  \ifXeTeX
+    \usepackage{mathspec} % this also loads fontspec
+  \else
+    \usepackage{unicode-math} % this also loads fontspec
+  \fi
+  $else$
+  \usepackage{unicode-math} % this also loads fontspec
+  $endif$
+  \usepackage{mathpazo}
+  \usepackage{newpxtext}
+  $if(font-sans-biolinium)$
+  \usepackage{biolinum}
+  $else$
+  \usepackage[scaled]{helvet}
+  $endif$
+  \defaultfontfeatures{Scale=MatchLowercase}$-- must come before Beamer theme
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+$if(fontfamily)$
+$else$
+$-- Set default font before Beamer theme so the theme can override it
+% \usepackage{lmodern}
+$endif$
+
+$if(font-headings-sans)$
+\usepackage{sectsty}
+$endif$

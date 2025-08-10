@@ -28,7 +28,10 @@ Then, add the format to your document options:
 ```yaml
 format:
   cmc-article-pdf: default
-```    
+```
+
+You may want to add some of the code from [`header.tex`](./header.text) in this
+case.
 
 ## Example
 
@@ -50,7 +53,7 @@ During rendering a table like the following will be included in the render log.
 -----------------------------------
  Section             Words   Cuml.
 -----------------------------------
- Title                   6       
+ Title                   6
  Abstract              163    163
   (Introduction...)    609
   (Formalizing ...)   1305
@@ -64,14 +67,12 @@ During rendering a table like the following will be included in the render log.
 
 To exclude a block element (image or table caption, div, code block) or entire
 section (demarcated by a header) from any word-counting, simply add the
-`{.nowords}` class to the element. 
-
+`{.nowords}` class to the element.
 
 ## Template Options
 
 Most Quarto PDF options are supported here, with the primary exception of
-alternative font families (see below for font customization)
-and anything to do with CSL references.
+alternative font families (see below for font customization).
 Additional package-specific options are described below.
 
 ### Blinded versions
@@ -82,26 +83,23 @@ journal:
   blinded: true
 ```
 
-### Physics package
-
-By default, the [`physics`](http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf) package is included.
-Provide the following key under `cmc-article-pdf` to remove it:
-```yaml
-physics: false
-```
+### Running header
+By default, the running header will include the article title.
+It can be overriden by providing your own `title-meta`.
 
 ### Fonts
 
 #### Serif font
-The default serif font is Cochineal, based on the Crimson font family.
+The default serif font is Crimson (for TeX, specifically the `cochineal` package).
 If you would rather not use this font, either for file size or aesthetic reasons, you can provide the following flag.
 Palatino will be used instead for the body text and mathematics.
+Palatino is the only option when `pdf-engine: xelatex` is used (the default is `pdflatex`).
 ```yaml
-font-serif-cochineal: false
+font-serif-crimson: false
 ```
 
 #### Sans-serif font
-The default sans-serif font is Biolinium, part of the `libertine` package.
+The default sans-serif font is Biolinium, part of the Linux Libertine family.
 If you would rather not use this font, either for file size or aesthetic reasons, you can provide the following flag.
 Helvetica will be used instead.
 ```yaml
@@ -110,9 +108,9 @@ font-sans-biolinium: false
 
 #### Serif title headings
 
-By default, the title and section headings are set in a sans-serif font. 
+By default, the title and section headings are set in a sans-serif font.
 Provide the following key under `cmc-article-pdf` to use a serif font:
 ```yaml
-font-serif-only: true
+font-headings-sans: true
 ```
 

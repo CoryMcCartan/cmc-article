@@ -1,5 +1,8 @@
-$if(font-serif-only)$$else$\allsectionsfont{\sffamily}$endif$
+$if(font-headings-sans)$\allsectionsfont{\sffamily}$endif$
 
+$if(has-frontmatter)$
+\frontmatter
+$endif$
 $if(title)$
 \maketitle
 $endif$

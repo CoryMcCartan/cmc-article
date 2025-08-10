@@ -7,10 +7,9 @@ contributes:
     common:
       journal:
         blinded: false
-      physics: true
-      font-serif-only: false
       font-sans-biolinium: true
-      font-serif-cochineal: true
+      font-serif-crimson: true
+      font-headings-sans: true
       toc: false
       fontsize: 11pt
       indent: false
@@ -19,31 +18,39 @@ contributes:
       margin-left: 1in
       margin-right: 1in
       margin-bottom: 1in
+      crossref:
+        eq-prefix: Eq.
       filters:
-        - refs.lua
+        - app.lua
         - wordcount.lua
       execute:
         echo: false
         warning: false
     pdf:
-      template: template.tex
       template-partials:
-        - partials/doc-class.tex
+        - partials/passoptions.latex
+        - partials/fonts.latex
         - partials/title.tex
         - partials/before-body.tex
-        - partials/biblio.tex
+      pdf-engine: xelatex
       cite-method: natbib
       biblio-style: apalike
-      doublespacing: false
+      number-sections: true
+      number-depth: 4
+      block-headings: false
+      fig-width: 7
+      fig-height: 3.5
+      fig-format: pdf
       colorlinks: true
       linkcolor: black
       citecolor: VioletRed4
       urlcolor: DodgerBlue4
+    typst:
       number-sections: true
       number-depth: 4
-      block-headings: false
-      fig-format: pdf
       fig-width: 7
       fig-height: 3.5
-      pdf-engine: pdflatex
+      fig-format: png
+
+
 

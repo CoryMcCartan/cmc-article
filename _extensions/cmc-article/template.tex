@@ -1,16 +1,8 @@
 % Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
+$passoptions.latex()$
+%
 $doc-class.tex()$
 
-
-\usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-$if(physics)$
-\usepackage[italicdiff]{physics}
-$endif$
 
 % SPACING AND FONTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $if(linestretch)$
@@ -113,7 +105,7 @@ $endif$
 \cfoot{\thepage}
 \makeatother
 % abstract styling
-\renewenvironment{abstract}{ 
+\renewenvironment{abstract}{
   \centerline
   {\large\sffamily\bfseries Abstract}\vspace{-1em}
   \begin{quote}\small
@@ -157,38 +149,39 @@ $endfor$
 % END USER INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-$if(biblio-config)$
-$if(natbib)$
-\usepackage[$natbiboptions$]{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$apalike$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
-$for(bibliography)$
-\addbibresource{$bibliography$}
-$endfor$
-$endif$
-$endif$
+$graphics.tex()$
+% $if(biblio-config)$
+% $if(natbib)$
+% \usepackage[$natbiboptions$]{natbib}
+% \bibliographystyle{$if(biblio-style)$$biblio-style$$else$apalike$endif$}
+% $endif$
+% $if(biblatex)$
+% \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+% $for(bibliography)$
+% \addbibresource{$bibliography$}
+% $endfor$
+% $endif$
+% $endif$
 
-% Give it this name so that it works with ::: #refs 
-\newenvironment{CSLReferences}[2]{ 
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-$endif$
-\clearpage
-}{}
+% Give it this name so that it works with ::: #refs
+% \newenvironment{CSLReferences}[2]{
+% $if(natbib)$
+% $if(bibliography)$
+% $if(biblio-title)$
+% $if(has-chapters)$
+% \renewcommand\bibname{$biblio-title$}
+% $else$
+% \renewcommand\refname{$biblio-title$}
+% $endif$
+% $endif$
+% \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+% $endif$
+% $endif$
+% $if(biblatex)$
+% \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+% $endif$
+% \clearpage
+% }{}
 
 % LINKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}

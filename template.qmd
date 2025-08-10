@@ -1,7 +1,7 @@
 ---
 title: Article Title
 abstract: |
-  The text of your abstract. 
+  The text of your abstract.
   The `cmc-article` format is designed for scholarly articles, especially preprints.
   Its goal is to be lightweight yet customizable, with thoughtful typography and layout.
 author:
@@ -33,7 +33,7 @@ format:
 keywords:
   - 3 to 6 keywords
   - can go here
-bibliography: references.bib 
+bibliography: references.bib
 ---
 
 # Introduction {#sec-intro}
@@ -45,13 +45,17 @@ See @sec-addl for a math demonstration.
 
 `cmc-article` includes helpful math packages: `mathtools`, `amssymb`, `amsthm`, and `physics` by default.
 It also includes a default `header.tex` file with useful macros for math and statistics.
-\begin{align*}
+Some of these are demonstrated in @eq-first.
+
+$$
+\begin{aligned}
     \vb{X} &\sim \Norm(\vb*\mu, \vb*\Sigma^2); \quad
-    p(\vb x) = \frac{1}{\sqrt{(2\pi)^k\det(\vb*\Sigma)}} 
+    p(\vb x) = \frac{1}{\sqrt{(2\pi)^k\det(\vb*\Sigma)}}
         \exp(-\frac{1}{2} (\vb x-\vb*\mu)^\top \vb*\Sigma^{-1} (\vb x-\vb*\mu)) \\
     \E(Y) &= \sum_{y\in\mathcal{Y}} y\Pr(Y=y)
     = \sum_{y\in\mathcal{Y}} y\E(\mathbb{1}\{Y=y\})
-\end{align*}
+\end{aligned}
+$$ {#eq-first}
 
 The package also includes an `assump` environment for typesetting assumptions which can be referenced by easy-to-remember abbreviations.
 
@@ -63,10 +67,12 @@ The observations $X_1,X_2,\dots,X_n$ are independent and identically distributed
 For each $1\le i\le n$, we have $E[X_i]=\mu<\infty$.
 \end{assump}
 
-\begin{theorem}
-Let $\widebar X_n \coloneq n^{-1}\sum_{i=1}^n X_i$.
-Then under \ref{a-iid} and \ref{a-fe}, we have $\widebar X_n\cvp\mu$ as $n\to\infty$.
-\end{theorem}
+::: {#thm-wlln}
+##### Weak Law of Large Numbers
+
+Let $\bar X_n \coloneq n^{-1}\sum_{i=1}^n X_i$.
+Then under \ref{a-iid} and \ref{a-fe}, we have $\bar X_n\cvp\mu$ as $n\to\infty$.
+:::
 
 ## An example subsection heading
 
@@ -83,14 +89,28 @@ ggplot(NULL, aes(rgamma(5e4, 3))) +
   theme_bw(base_family="Times")
 ```
 
+### Level 3 heading
+
+Text here.
+
+#### Level 4 (numbered paragraph) heading
+
+Text here.
+
+##### Level 5 (paragraph) heading
+
+Text here.
+
 # Conclusion
 
-The references will appear automatically before the first section labeled `{.appendix}`.
+The final section of the main text.
 
-# First appendix section {.appendix}
+# References {.unnumbered}
 
-This section will be numbered like an appendix and will appear after the references.
+::: {#refs}
+:::
 
-# Second appendix section {.appendix}
+# Appendix section {.appendix}
 
-If there is no content in the last section it will be used to title the references section instead.
+This section will be numbered like an appendix
+
