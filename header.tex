@@ -7,6 +7,11 @@
 
 
 
+% For Typst, copy any custom commands from this file into _header.md or the main
+% document. Delete any comments, including ones at the end of lines.
+% If using `\qty' from `physics`, also include \providecommand{\qty}{}
+% If using `\vb' and `\vb*' from `physics`, copy the two lines near the bottom
+
 % Blackboard bold sets and the empty set
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
@@ -33,7 +38,7 @@
 
 % probability operators, abbrevations, and notions of convergence
 \DeclareMathOperator{\E}{\mathbb{E}}
-\let\Pr\undefined
+\let\Pr\undefined % delete this line if using Typst
 \DeclareMathOperator{\Pr}{\mathbb{P}}
 \newcommand{\indep}{\mathbin{\perp\!\!\!\!\!\:\perp}} % use \perp for orthogonality only
 \newcommand{\gvn}{\;\middle|\;} % use \gvn rather than \mid inside a tall expectation
@@ -74,12 +79,16 @@
 \newcommand{\MVNorm}[1][]{\mathcal{N}_{#1}\qty} % e.g. \MVNorm{p} for a p-dim distr.
 \newcommand{\Student}{\mathrm{Student-}\mathit{t}\qty}
 
-% delimiters
+% delimiters -- do not work with Typst
 \DeclarePairedDelimiter\br{\langle}{\rangle}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\round{\lceil}{\rfloor}
 \DeclarePairedDelimiter\set{\{}{\}}
+
+% Vector bold; \vb is for Latin and \vbg for Greek letters
+\providecommand{\vb}[1]{\mathbf{#1}}
+\providecommand{\vbg}[1]{\boldsymbol{#1}}
 
 % Add \numberthis to the end of a line in an `align*` environment to get a number
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}

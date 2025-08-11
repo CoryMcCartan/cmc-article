@@ -13,6 +13,12 @@ function proc_app(el)
                 pandoc.RawInline("latex", "\\setcounter{figure}{0}\n\n"),
                 el
             })
+        elseif quarto.doc.isFormat("typst") then
+            return pandoc.List({
+                pandoc.RawInline("typst", '#set heading(numbering: "A.1.1.1")\n'),
+                pandoc.RawInline("typst", '#counter(heading).update(0)\n'),
+                el,
+            })
         end
     end
 end

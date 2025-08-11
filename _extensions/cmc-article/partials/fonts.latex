@@ -13,7 +13,7 @@
   \usepackage{mathpazo}
   \usepackage{newpxtext}
   $endif$
-  $if(font-sans-biolinium)$
+  $if(font-sans-biolinum)$
   \usepackage{biolinum}
   $else$
   \usepackage[scaled]{helvet}
@@ -31,7 +31,7 @@
   $endif$
   \usepackage{mathpazo}
   \usepackage{newpxtext}
-  $if(font-sans-biolinium)$
+  $if(font-sans-biolinum)$
   \usepackage{biolinum}
   $else$
   \usepackage[scaled]{helvet}

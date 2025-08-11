@@ -36,6 +36,9 @@ keywords:
 bibliography: references.bib
 ---
 
+<!-- Math macros for Typst -->
+{{< include _header.md >}}
+
 # Introduction {#sec-intro}
 
 Body of paper. Citations are easy to use [@metropolis1953].
@@ -49,9 +52,9 @@ Some of these are demonstrated in @eq-first.
 
 $$
 \begin{aligned}
-    \vb{X} &\sim \Norm(\vb*\mu, \vb*\Sigma^2); \quad
+   \vb{X} &\sim \Norm(\vbg{\mu}, \vbg\Sigma^2); \quad
     p(\vb x) = \frac{1}{\sqrt{(2\pi)^k\det(\vb*\Sigma)}}
-        \exp(-\frac{1}{2} (\vb x-\vb*\mu)^\top \vb*\Sigma^{-1} (\vb x-\vb*\mu)) \\
+        \exp(-\frac{1}{2} (\vb x-\vbg\mu)^\top \vbg\Sigma^{-1} (\vb x-\vbg\mu)) \\
     \E(Y) &= \sum_{y\in\mathcal{Y}} y\Pr(Y=y)
     = \sum_{y\in\mathcal{Y}} y\E(\mathbb{1}\{Y=y\})
 \end{aligned}
@@ -64,7 +67,7 @@ The observations $X_1,X_2,\dots,X_n$ are independent and identically distributed
 \end{assump}
 
 \begin{assump}[Finite expectation]{FE}
-For each $1\le i\le n$, we have $E[X_i]=\mu<\infty$.
+For each $1\le i\le n$, we have $\E[X_i]=\mu<\infty$.
 \end{assump}
 
 ::: {#thm-wlln}
@@ -91,7 +94,7 @@ ggplot(NULL, aes(rgamma(5e4, 3))) +
 
 ### Level 3 heading
 
-Text here.
+Testing that *italics* and **bold** text work.
 
 #### Level 4 (numbered paragraph) heading
 
@@ -113,4 +116,3 @@ The final section of the main text.
 # Appendix section {.appendix}
 
 This section will be numbered like an appendix
-
