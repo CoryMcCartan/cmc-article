@@ -56,7 +56,7 @@ $if(keywords)$
   keywords: ($for(keywords)$[$keywords$]$sep$, $endfor$),
 $endif$
 $if(font-serif-crimson)$
-  font: ("Crimson Pro",),
+  font: ("Cochineal",),
 $elseif(mainfont)$
   font: ("$mainfont$",),
 $else$
@@ -74,7 +74,7 @@ $else$
 $endif$
 $else$
 $if(font-serif-crimson)$
-  heading-family: ("Crimson Pro",),
+  heading-family: ("Cochineal",),
 $elseif(mainfont)$
   heading-family: ("$mainfont$",),
 $else$

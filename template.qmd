@@ -25,11 +25,11 @@ date: last-modified
 thanks: |
   Acknowledgements here.
 format:
-  cmc-article-pdf:
-    keep-tex: true
+  cmc-article-typst:
+    # keep-tex: true
     journal:
       blinded: false
-    include-in-header: header.tex
+    # include-in-header: header.tex
 keywords:
   - 3 to 6 keywords
   - can go here

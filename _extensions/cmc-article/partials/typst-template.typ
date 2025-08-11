@@ -32,7 +32,6 @@
   set text(lang: lang,
            region: region,
            font: font,
-           weight: if (font.first() == "Crimson Pro") { 300 } else { "regular" },
            size: fontsize,
            number-type: "old-style",
            )

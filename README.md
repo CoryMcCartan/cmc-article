@@ -93,7 +93,7 @@ It can be overriden by providing your own `title-meta`.
 ### Fonts
 
 #### Serif font
-The default serif font is Crimson (for TeX, specifically the `cochineal` package).
+The default serif font is Cochineal, based on Crimson (for TeX, specifically the `cochineal` package).
 If you would rather not use this font, either for file size or aesthetic reasons, you can provide the following flag.
 Palatino will be used instead for the body text and mathematics.
 Palatino is the only option when `pdf-engine: xelatex` is used (the default is `pdflatex`).
@@ -101,7 +101,7 @@ Palatino is the only option when `pdf-engine: xelatex` is used (the default is `
 font-serif-crimson: false
 ```
 
-For Typst, you will need to download and install the Crimson font [here](https://fontsarena.com/wp-content/uploads/2018/12/CrimsonPro.zip).
+For Typst, you will need to download and install the Crimson font [here](https://fontesk.com/download/35892/).
 
 
 #### Sans-serif font
