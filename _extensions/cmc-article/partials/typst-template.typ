@@ -20,7 +20,7 @@
   heading-weight: "bold",
   heading-style: "normal",
   heading-color: black,
-  heading-line-height: 0.65em,
+  heading-line-height: 0.4em,
   sectionnumbering: none,
   toc: false,
   toc_title: none,
@@ -40,6 +40,7 @@
   if title != none {
     align(center)[#block(inset: 2em)[
       #set par(leading: heading-line-height)
+      #set text(hyphenate: false)
       #if (heading-family != none or heading-weight != "bold" or heading-style != "normal"
            or heading-color != black) {
         set text(font: heading-family, weight: heading-weight, style: heading-style, fill: heading-color)
@@ -77,11 +78,12 @@
     let count = authors.len()
     let ncols = calc.min(count, 3)
     align(center, grid(
-      columns: (30%,) * ncols,
+      columns: (1fr,) * ncols,
       row-gutter: 1.5em,
       column-gutter: 0.1em,
       ..authors.map(author =>
           align(center)[
+            #set text(hyphenate: false)
             #author.name \
             #author.affiliation
           ]
