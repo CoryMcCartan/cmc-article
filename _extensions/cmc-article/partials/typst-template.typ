@@ -39,7 +39,7 @@
   set heading(numbering: sectionnumbering)
   if title != none {
     align(center)[#block(inset: 2em)[
-      #set par(leading: heading-line-height)
+      #set par(leading: heading-line-height, justify: false)
       #set text(hyphenate: false)
       #if (heading-family != none or heading-weight != "bold" or heading-style != "normal"
            or heading-color != black) {
