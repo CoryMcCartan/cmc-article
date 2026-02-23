@@ -12,22 +12,4 @@
 % Add \numberthis to the end of a line in an `align*` environment to get a number
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
-% Named assumptions:
-% Use \begin{assump}[Optional label]{KEY} to create an assumption
-% Reference it with \ref{a-key}, where `key` is the lowercased version of `KEY`
-\makeatletter
-\newcommand{\assumplabel}[2]{%
-   \protected@write \@auxout {}{\string\newlabel{#1}{{#2}{\thepage}{#2}{#1}{}}}%
-   \hypertarget{#1}{#2}%
-}
-\makeatother
-\newenvironment{assump}[2][]{%
-\par\medskip%
-\def\tempa{}\def\tempb{#1}%
-\lowercase{\def\lblkey{a-#2}}%
-\textbf{Assumption \assumplabel{\lblkey}{#2}}%
-\ifx\tempa\tempb\else~(#1)\fi%
-\textbf{.}\itshape
-}{\normalfont}
-
 % END header.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

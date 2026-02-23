@@ -19,6 +19,7 @@ contributes:
       filters:
         - app.lua
         - wordcount.lua
+        - assump.lua
       execute:
         echo: false
         warning: false
@@ -26,6 +27,7 @@ contributes:
       template-partials:
         - partials/passoptions.latex
         - partials/fonts.latex
+        - partials/before-title.tex
         - partials/title.tex
         - partials/before-body.tex
       pdf-engine: pdflatex
@@ -50,8 +52,6 @@ contributes:
         - partials/page.typ
         - partials/typst-show.typ
         - partials/typst-template.typ
-      filters:
-        - assump.lua
       number-sections: true
       number-depth: 4
       bibliographystyle: apa
