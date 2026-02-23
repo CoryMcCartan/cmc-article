@@ -8,10 +8,10 @@
 }
 \makeatother
 \newenvironment{assump}[2][]{%
-\par\medskip%
+\par\medskip\noindent%
 \def\tempa{}\def\tempb{#1}%
 \lowercase{\def\lblkey{asm-#2}}%
 \textbf{Assumption \assumplabel{\lblkey}{#2}}%
 \ifx\tempa\tempb\else~(#1)\fi%
 \textbf{.}\itshape%
-}{\normalfont}
+}{\medskip\normalfont}

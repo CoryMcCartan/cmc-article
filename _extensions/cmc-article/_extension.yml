@@ -19,9 +19,6 @@ contributes:
       fig-width: 7
       fig-height: 3.5
       fig-format: pdf
-      citecolor: "#8b2252"
-      linkcolor: "#000000"
-      urlcolor: "#104e8b"
       crossref:
         eq-prefix: Eq.
       filters:
@@ -43,6 +40,9 @@ contributes:
       biblio-style: apalike
       block-headings: false
       colorlinks: true
+      linkcolor: black
+      citecolor: VioletRed4
+      urlcolor: DodgerBlue4
       margin-top: 1in
       margin-left: 1in
       margin-right: 1in
@@ -55,6 +55,9 @@ contributes:
       bibliographystyle: apa
       citeproc: true
       section-numbering: "1.1.1.1"
+      linkcolor: "#000000"
+      citecolor: "#8b2252"
+      urlcolor: "#104e8b"
       margin:
         x: 1in
         y: 1in
