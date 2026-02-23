@@ -10,10 +10,18 @@ contributes:
       font-sans-biolinum: true
       font-serif-crimson: true
       font-headings-sans: true
+      number-sections: true
+      number-depth: 4
       toc: false
       fontsize: 11pt
       indent: false
       date-format: long
+      fig-width: 7
+      fig-height: 3.5
+      fig-format: pdf
+      citecolor: "#8b2252"
+      linkcolor: "#000000"
+      urlcolor: "#104e8b"
       crossref:
         eq-prefix: Eq.
       filters:
@@ -33,32 +41,19 @@ contributes:
       pdf-engine: pdflatex
       cite-method: natbib
       biblio-style: apalike
-      number-sections: true
-      number-depth: 4
       block-headings: false
-      fig-width: 7
-      fig-height: 3.5
-      fig-format: pdf
+      colorlinks: true
       margin-top: 1in
       margin-left: 1in
       margin-right: 1in
       margin-bottom: 1in
-      colorlinks: true
-      linkcolor: black
-      citecolor: VioletRed4
-      urlcolor: DodgerBlue4
     typst:
       template-partials:
         - partials/page.typ
         - partials/typst-show.typ
         - partials/typst-template.typ
-      number-sections: true
-      number-depth: 4
       bibliographystyle: apa
       citeproc: true
-      fig-width: 7
-      fig-height: 3.5
-      fig-format: png
       section-numbering: "1.1.1.1"
       margin:
         x: 1in

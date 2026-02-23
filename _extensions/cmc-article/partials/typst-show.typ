@@ -39,6 +39,9 @@ $endfor$
     ),
 $endif$
 $endif$
+$if(keywords)$
+  keywords: ($for(keywords)$[$keywords$]$sep$, $endfor$),
+$endif$
 $if(date)$
   date: [$date$],
 $endif$
@@ -51,9 +54,6 @@ $endif$
 $if(abstract)$
   abstract: [$abstract$],
   abstract-title: "$labels.abstract$",
-$endif$
-$if(keywords)$
-  keywords: ($for(keywords)$[$keywords$]$sep$, $endfor$),
 $endif$
 $if(font-serif-crimson)$
   font: ("Cochineal",),
@@ -85,6 +85,32 @@ $endif$
 $endif$
 $if(section-numbering)$
   sectionnumbering: "$section-numbering$",
+$endif$
+$if(number-depth)$
+  number-depth: $number-depth$,
+$endif$
+$if(mathfont)$
+  mathfont: ($for(mathfont)$"$mathfont$",$endfor$),
+$endif$
+$if(codefont)$
+  codefont: ($for(codefont)$"$codefont$",$endfor$),
+$elseif(brand.typography.monospace.family)$
+  codefont: $brand.typography.monospace.family$,
+$endif$
+$if(linestretch)$
+  linestretch: $linestretch$,
+$endif$
+$if(linkcolor)$
+  linkcolor: [$linkcolor$],
+$endif$
+$if(citecolor)$
+  citecolor: [$citecolor$],
+$endif$
+$if(urlcolor)$
+  urlcolor: [$urlcolor$],
+$endif$
+$if(filecolor)$
+  filecolor: [$filecolor$],
 $endif$
 $if(toc)$
   toc: $toc$,

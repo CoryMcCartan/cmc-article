@@ -25,20 +25,18 @@ date: last-modified
 thanks: |
   Acknowledgements here.
 format:
-  cmc-article-pdf:
+  cmc-article-typst:
     keep-tex: true
+    keep-typ: true
     journal:
       blinded: false
-    include-in-header: header.tex
 keywords:
   - 3 to 6 keywords
   - can go here
 bibliography: references.bib
 ---
 
-<!-- Math macros for Typst -->
 ::: {.content-visible when-format="typst"}
-\providecommand{\qty}{}
 {{< include macros.tex >}}
 :::
 
@@ -49,15 +47,14 @@ See @sec-addl for a math demonstration.
 
 # Additional section headings here {#sec-addl}
 
-`cmc-article` includes helpful math packages: `mathtools`, `amssymb`, `amsthm`, and `physics` by default.
-It also includes a default `header.tex` file with useful macros for math and statistics.
+`cmc-article` includes a default `macros.tex` file with useful macros for math and statistics.
 Some of these are demonstrated in @eq-first.
 
 $$
 \begin{aligned}
    \vb{X} &\sim \Norm(\vbg{\mu}, \vbg\Sigma^2); \quad
     p(\vb x) = \frac{1}{\sqrt{(2\pi)^k\det(\vb*\Sigma)}}
-        \exp(-\frac{1}{2} (\vb x-\vbg\mu)^\top \vbg\Sigma^{-1} (\vb x-\vbg\mu)) \\
+        \exp\left(-\frac{1}{2} (\vb x-\vbg\mu)^\top \vbg\Sigma^{-1} (\vb x-\vbg\mu)\right) \\
     \E(Y) &= \sum_{y\in\mathcal{Y}} y\Pr(Y=y)
     = \sum_{y\in\mathcal{Y}} y\E(\mathbb{1}\{Y=y\})
 \end{aligned}
@@ -79,7 +76,7 @@ For each $1\le i\le n$, we have $\E[X_i]=\mu<\infty$.
 ##### Weak Law of Large Numbers
 
 Let $\bar X_n \coloneq n^{-1}\sum_{i=1}^n X_i$.
-Then under @asm-iid and @asm-fe, we have $\bar X_n\cvp\mu$ as $n\to\infty$.
+Then under @asm-iid and -@asm-fe, we have $\bar X_n\cvp\mu$ as $n\to\infty$.
 :::
 
 ## An example subsection heading
@@ -120,4 +117,4 @@ The final section of the main text.
 
 # Appendix section {.appendix}
 
-This section will be numbered like an appendix
+This section will be numbered like an appendix.

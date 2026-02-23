@@ -2,14 +2,13 @@
   title: none,
   subtitle: none,
   authors: none,
-  blinded: false,
+  keywords: none,
   date: none,
   abstract: none,
   abstract-title: none,
   cols: 1,
   lang: "en",
   region: "US",
-  keywords: none,
   font: "libertinus serif",
   fontsize: 11pt,
   title-size: 2.0em,
@@ -18,23 +17,63 @@
   heading-weight: "bold",
   heading-style: "normal",
   heading-color: black,
-  heading-line-height: 0.4em,
+  heading-line-height: 0.65em,
+  mathfont: none,
+  codefont: none,
+  linestretch: 1,
   sectionnumbering: none,
+  number-depth: 3,
+  linkcolor: none,
+  citecolor: none,
+  urlcolor: none,
+  filecolor: none,
   toc: false,
   toc_title: none,
   toc_depth: none,
   toc_indent: 1.5em,
   doc,
 ) = {
-  set par(justify: true)
-  set text(lang: lang,
-           region: region,
-           font: font,
-           size: fontsize,
-           number-type: "old-style",
-           )
+  set document(title: title, keywords: content-to-string(keywords.join(", ")))
+  set document(
+    author: authors.map(author => content-to-string(author.name)).join(", ", last: " & "),
+  ) if authors != none and authors != ()
+  set par(
+    justify: true,
+    leading: linestretch * 0.65em
+  )
+  set text(
+    lang: lang,
+    region: region,
+    size: fontsize,
+    number-type: "old-style",
+  )
+  set text(font: font) if font != none
   show math.equation: set text(number-type: "lining", number-width: "tabular")
+  show math.equation: set text(font: mathfont) if mathfont != none
+
   set heading(numbering: sectionnumbering)
+
+  show ref: this => {
+    if (citecolor != none and this.element == none) {
+      text(this, fill: rgb(content-to-string(citecolor)))
+    } else if (linkcolor != none and this.form != none) {
+      text(this, fill: rgb(content-to-string(linkcolor)))
+    } else {
+      text(this)
+    }
+  }
+  show link: this => {
+    if filecolor != none and type(this.dest) == label {
+      text(this, fill: rgb(content-to-string(filecolor)))
+    } else if urlcolor != none and type(this.dest) == str {
+      text(this, fill: rgb(content-to-string(urlcolor)))
+    } else if (linkcolor != none) {
+      text(this, fill: rgb(content-to-string(linkcolor)))
+    } else {
+      text(this)
+    }
+  }
+
   if title != none {
     align(center)[#block(inset: 2em)[
       #set par(leading: heading-line-height, justify: false)
@@ -59,13 +98,21 @@
   show heading: it => {
     set text(font: heading-family, weight: heading-weight, style: heading-style,
              fill: heading-color, number-type: "lining")
-    if it.numbering == none {
-        block(it, inset: (top: 0.05em, bottom: 0.25em))
+    if (it.depth <= 3) {
+      if it.numbering == none or it.depth > number-depth {
+          block(it.body, inset: (top: 0.05em, bottom: 0.25em))
+      } else {
+          block(
+            counter(heading).display(it.numbering) + h(1em) + it.body,
+            inset: (top: 0.05em, bottom: 0.25em)
+          )
+      }
     } else {
-        block(
-          counter(heading).display(it.numbering) + h(1em) + it.body,
-          inset: (top: 0.05em, bottom: 0.25em)
-        )
+      if it.numbering == none or it.depth > number-depth {
+          it.body + h(1em)
+      } else {
+          counter(heading).display(it.numbering) + h(1em) + it.body + h(1em)
+      }
     }
   }
 
@@ -141,3 +188,4 @@
   inset: 6pt,
   stroke: none
 )
+#let NormalTok(s) = text(fill: rgb("#000000"),raw(s))

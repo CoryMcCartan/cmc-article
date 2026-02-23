@@ -31,11 +31,8 @@ function proc_assump(el)
 
         if quarto.doc.is_format("latex") then
             local namestr = name and pandoc.utils.stringify(name) or ""
-            local callthm = pandoc.Div({})
-            callthm.content:insert(pandoc.RawBlock("latex", "\\begin{assump}[" .. namestr .. "]{" .. shortname .. "}"))
-            tappend(callthm.content, quarto.utils.as_blocks(el.content))
-            callthm.content:insert(pandoc.RawBlock("latex", "\\end{assump}"))
-            return callthm
+            local inner = pandoc.write(pandoc.Pandoc(quarto.utils.as_blocks(el.content)), "latex")
+            return pandoc.RawBlock("latex", "\\begin{assump}[" .. namestr .. "]{" .. shortname .. "}\n" .. inner .. "\\end{assump}")
         elseif quarto.doc.is_format("typst") then
             local preamble = pandoc.Plain({pandoc.RawInline("typst", "#block[#strong[Assumption " .. shortname .. "]")})
             if name and #name > 0 then
@@ -47,11 +44,11 @@ function proc_assump(el)
             local callthm = pandoc.Div(preamble)
             tappend(callthm.content, quarto.utils.as_blocks(el.content))
             callthm.content:insert(pandoc.RawInline("typst", "]] <" .. el.attr.identifier .. ">"))
+            return callthm
         else
             quarto.log.output("Warning: Unsupported format for assumption environments.")
+            return el
         end
-
-        return callthm
     end
     return el
 end
@@ -66,12 +63,15 @@ function proc_cite(el)
             local ref = pandoc.List()
             if quarto.doc.is_format("latex") then
                 local key = string.sub(label, 5, -1)
+                if cite.mode ~= "SuppressAuthor" then
+                    ref:insert(pandoc.RawInline('latex', 'Assumption~'))
+                end
                 ref:insert(pandoc.RawInline('latex', '\\ref{asm-' .. key .. '}'))
             elseif quarto.doc.is_format("typst") then
                 ref:insert(1, pandoc.RawInline('typst', '#link(<' .. label .. '>)['))
-                -- if cite.mode ~= "SuppressAuthor" then
-                --     ref:insert(pandoc.RawInline('typst', 'Assumption '))
-                -- end
+                if cite.mode ~= "SuppressAuthor" then
+                    ref:insert(pandoc.RawInline('typst', 'Assumption '))
+                end
                 ref:insert(pandoc.RawInline('typst', name .. ']'))
             else
                 quarto.log.output("Warning: Unsupported format for assumption environments.")
