@@ -50,6 +50,8 @@ contributes:
         - partials/page.typ
         - partials/typst-show.typ
         - partials/typst-template.typ
+      filters:
+        - assump.lua
       number-sections: true
       number-depth: 4
       bibliographystyle: apa

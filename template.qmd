@@ -25,11 +25,10 @@ date: last-modified
 thanks: |
   Acknowledgements here.
 format:
-  cmc-article-pdf:
+  cmc-article-typst:
     keep-tex: true
     journal:
       blinded: false
-    include-in-header: header.tex
 keywords:
   - 3 to 6 keywords
   - can go here
@@ -37,7 +36,10 @@ bibliography: references.bib
 ---
 
 <!-- Math macros for Typst -->
-{{< include _header.md >}}
+::: {.content-visible when-format="typst"}
+\providecommand{\qty}{}
+{{< include macros.tex >}}
+:::
 
 # Introduction {#sec-intro}
 
@@ -60,21 +62,23 @@ $$
 \end{aligned}
 $$ {#eq-first}
 
-The package also includes an `assump` environment for typesetting assumptions which can be referenced by easy-to-remember abbreviations.
+The package also includes an `assump` environment for typesetting assumptions which can be referenced by easy-to-remember abbreviations, as demonstrated in @thm-wlln below.
 
-\begin{assump}{IID}
+::: {#asm-iid}
 The observations $X_1,X_2,\dots,X_n$ are independent and identically distributed.
-\end{assump}
+:::
 
-\begin{assump}[Finite expectation]{FE}
+::: {#asm-fe}
+# Finite expectation
+
 For each $1\le i\le n$, we have $\E[X_i]=\mu<\infty$.
-\end{assump}
+:::
 
 ::: {#thm-wlln}
 ##### Weak Law of Large Numbers
 
 Let $\bar X_n \coloneq n^{-1}\sum_{i=1}^n X_i$.
-Then under \ref{a-iid} and \ref{a-fe}, we have $\bar X_n\cvp\mu$ as $n\to\infty$.
+Then under @asm-iid and @asm-fe, we have $\bar X_n\cvp\mu$ as $n\to\infty$.
 :::
 
 ## An example subsection heading

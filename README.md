@@ -23,18 +23,7 @@ To add this format to an existing document:
 quarto add CoryMcCartan/cmc-article
 ```
 
-Then, add the format to your document options:
-
-```yaml
-format: cmc-article-pdf
-```
-or
-
-```yaml
-format: cmc-article-typst
-```
-You may want to add some of the code from [`header.tex`](./header.tex) in this
-case.
+Then, add the format to your document options: `format: cmc-article-typst` or `format: cmc-article-pdf`.
 
 ## Example
 
@@ -122,7 +111,7 @@ Provide the following key under `cmc-article-pdf` to use a serif font:
 font-headings-sans: true
 ```
 
-## Miscellanea
+## Switching between Typst and TeX
 
 - If you need compatibility between Typst and TeX formats, and you are using the
 `\vb` macro, you should use `\vbg` for Greek letters rather than `\vb*`, since
@@ -133,4 +122,9 @@ the latter will not work in Typst.
   default format does not suit your needs. You can set `citeproc: false`
   explicitly to opt in to Typst's bibliography system.
 
-- The assumptions environment is currently TeX-only.
+- `macros.tex` contains shared macro definitions that are available in both TeX and Typst.
+  To make this file work with both engines, no comments are allowed.
+  Some TeX-specific macros are in `header.tex`, which can be deleted if only Typst is being used.
+
+- When switching to TeX, add `include-in-header: header.tex` to your format options.
+  When switching to Typst, remove this line.

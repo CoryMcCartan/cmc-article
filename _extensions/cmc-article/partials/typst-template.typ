@@ -1,5 +1,3 @@
-
-
 #let article(
   title: none,
   subtitle: none,
@@ -62,9 +60,12 @@
     set text(font: heading-family, weight: heading-weight, style: heading-style,
              fill: heading-color, number-type: "lining")
     if it.numbering == none {
-        it
+        block(it, inset: (top: 0.05em, bottom: 0.25em))
     } else {
-        block(counter(heading).display(it.numbering) + h(1em) + it.body)
+        block(
+          counter(heading).display(it.numbering) + h(1em) + it.body,
+          inset: (top: 0.05em, bottom: 0.25em)
+        )
     }
   }
 
@@ -140,4 +141,3 @@
   inset: 6pt,
   stroke: none
 )
-
